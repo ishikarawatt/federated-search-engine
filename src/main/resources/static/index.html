@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FedSearch | Next-Gen Federated Search</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mesh-bg"></div>
+    
+    <nav class="navbar">
+        <div class="logo">FED<span>SEARCH</span></div>
+        <div class="nav-links">
+            <span class="status-dot"></span> System Online
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="badge">v2.0 Beta Launched</div>
+            <h1>Search Everywhere. <br><span class="gradient-text">All at Once.</span></h1>
+            <p class="subtitle">Aggregate results from across the web, remove spam, and find exactly what you need in milliseconds.</p>
+            
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+
+                    <!-- INPUT WITH ID -->
+                    <input 
+                        type="text" 
+                        class="search-bar" 
+                        placeholder="What are we looking for today?" 
+                        id="searchInput"
+                    >
+
+                    <!-- SEARCH BUTTON -->
+                    <button 
+                        class="search-btn" 
+                        onclick="handleSearch(document.getElementById('searchInput').value)"
+                    >
+                        Search
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="hero-stats" id="heroStats">
+                <div class="stat"><strong>50+</strong> Sources</div>
+                <div class="stat"><strong>0ms</strong> Latency</div>
+                <div class="stat"><strong>AI</strong> Spam Filter</div>
+            </div>
+        </div>
+
+        <div class="loader" id="loader"></div>
+    </section>
+
+    <main class="results-section" id="resultsSection">
+        <header class="results-header">
+            <div class="filters">
+                <button class="filter-chip active">All Sources</button>
+                <button class="filter-chip">YouTube</button>
+                <button class="filter-chip">Scientific Papers</button>
+                <button class="filter-chip">Documentation</button>
+            </div>
+
+            <!-- RESULTS COUNT -->
+            <div class="results-count" id="resultsCount"></div>
+        </header>
+
+        <!-- RESULTS GRID -->
+        <div class="results-grid" id="resultsGrid"></div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
