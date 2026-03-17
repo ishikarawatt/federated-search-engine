@@ -2,14 +2,15 @@
 
 <div align="center">
 
-[![GitHub Stars](https://img.shields.io/github/stars/ishikarawatt/federated-search-engine?style=for-the-badge\&logo=github)](https://github.com/ishikarawatt/federated-search-engine/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/ishikarawatt/federated-search-engine?style=for-the-badge&logo=github)](https://github.com/ishikarawatt/federated-search-engine/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
-[![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge\&logo=openjdk\&logoColor=white)](https://www.java.com)
-[![Spring Boot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge\&logo=springboot\&logoColor=white)](https://spring.io/projects/spring-boot)
-[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge\&logo=javascript\&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com)
+[![Spring Boot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-**A full-stack federated search system that aggregates, filters, and ranks results from multiple sources.**
+**A powerful full-stack federated search system that aggregates, deduplicates, and ranks results from multiple sources in real-time.**
 
+[Live Demo](#) • [Report Bug](https://github.com/ishikarawatt/federated-search-engine/issues) • [Request Feature](https://github.com/ishikarawatt/federated-search-engine/issues)
 </div>
 
 ---
@@ -203,6 +204,19 @@ Relevance scores for each result
 Source attribution and credibility indicators
 Processing time and total results count
 Pagination for easy navigation
+
+# Sample Results Interface 
+┌─────────────────────────────────────────────────┐
+│ Java Programming Tutorial                       │
+│ Source: Developer Hub  |  Score: 9.5/10  ⭐     │
+├─────────────────────────────────────────────────┤
+│ Learn Java from basics to advanced concepts     │
+│ with real-world examples and best practices.    │
+│                                                 │
+│ 🔗 https://example.com/java-tutorial            │
+│ ⏱️  Processing time: 245ms                      │
+
+└─────────────────────────────────────────────────┘
 ---
 
 # 🚧 Future Improvements
@@ -214,17 +228,6 @@ Pagination for easy navigation
 * Multi-language support
 * Search suggestions/autocomplete
 
-#Sample Result Format
-┌─────────────────────────────────────────────────┐
-│ Java Programming Tutorial                       │
-│ Source: Developer Hub  |  Score: 9.5/10  ⭐     │
-├─────────────────────────────────────────────────┤
-│ Learn Java from basics to advanced concepts     │
-│ with real-world examples and best practices.    │
-│                                                 │
-│ 🔗 https://example.com/java-tutorial            │
-│ ⏱️  Processing time: 245ms                      │
-└─────────────────────────────────────────────────┘
 ---
 
 # 📄 License
@@ -247,6 +250,7 @@ For full license details, see the LICENSE file in the repository.
 🎓 B.Tech Computer Science Student
 💼 GitHub Profile
 📧 Contact via GitHub
+
 
 <div align="center">
 ⭐ If you find this project useful, please consider giving it a star!
