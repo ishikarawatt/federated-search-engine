@@ -227,9 +227,13 @@ For full license details, see the LICENSE file in the repository.
 # 👩‍💻 Author
 
 **Ishika Rawat**
+
 🎓 B.Tech Computer Science Student
+
 💼 GitHub Profile
+
 📧 Contact via GitHub
+
 
 
 <div align="center">
