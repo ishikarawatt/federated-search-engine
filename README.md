@@ -194,31 +194,6 @@ federated-search-engine/
 
 ---
 
-# 📸 Example Output
-
-Search Results Interface
-The application provides a clean, user-friendly interface that displays:
-
-Search results from multiple sources in a unified view
-Relevance scores for each result
-Source attribution and credibility indicators
-Processing time and total results count
-Pagination for easy navigation
-
-# Sample Results Interface 
-┌─────────────────────────────────────────────────┐
-│ Java Programming Tutorial                       │
-│ Source: Developer Hub  |  Score: 9.5/10  ⭐     │
-├─────────────────────────────────────────────────┤
-│ Learn Java from basics to advanced concepts     │
-│ with real-world examples and best practices.    │
-│                                                 │
-│ 🔗 https://example.com/java-tutorial            │
-│ ⏱️  Processing time: 245ms                      │
-
-└─────────────────────────────────────────────────┘
----
-
 # 🚧 Future Improvements
 
 * Advanced filtering options
@@ -236,10 +211,15 @@ This project is licensed under the **MIT License** - see the LICENSE file for de
 MIT License Summary:
 
 ✅ You can use this software for any purpose
+
 ✅ You can copy, modify, and distribute the software
+
 ✅ You can use the software privately
+
 ⚠️ You must include a copy of the license and copyright notice
+
 ⚠️ The software is provided "as-is" without warranty
+
 For full license details, see the LICENSE file in the repository.
 
 ---
