@@ -16,18 +16,18 @@
 
 # 📋 Table of Contents
 
-* About
-* Features
-* Tech Stack
-* Architecture
-* Installation
-* Usage
-* Project Structure
-* Example Output
-* Future Improvements
-* License
-* Author
-
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Installation & Setup](#installation--setup)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Example Output](#example-output)
+- [Future Improvements](#future-improvements)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
 ---
 
 # 📖 About
@@ -48,33 +48,35 @@ This project demonstrates **full-stack development and scalable backend architec
 
 # ✨ Features
 
-* 🔍 Multi-source search aggregation
-* ⚡ Fast backend using Spring Boot
-* 🧠 Duplicate removal and spam filtering
-* 📊 Intelligent ranking algorithm
-* 🎨 Modern responsive UI
-* 🔗 Frontend–Backend API integration
-* 🚀 RESTful API design
+- 🔍 **Multi-Source Search** - Query multiple search engines and data sources simultaneously
+- ⚡ **High-Performance Backend** - Built with Spring Boot for scalable, fast processing
+- 🧠 **Intelligent Filtering** - Advanced spam detection and duplicate removal algorithms
+- 📊 **Smart Ranking System** - Relevance-based ranking to prioritize quality results
+- 🎨 **Modern UI** - Responsive and intuitive user interface
+- 🔗 **Full-Stack Integration** - Seamless communication between frontend and backend
+- 🚀 **RESTful APIs** - Clean, well-documented API endpoints
+- 📈 **Scalable Architecture** - Service-based design for easy extension
 
 ---
 
 # 🛠 Tech Stack
 
-## Backend
+# Backend
+- **Java** - Core programming language
+- **Spring Boot** - Web framework & REST APIs
+- **Maven** - Build and dependency management
 
-| Technology  | Purpose               |
-| ----------- | --------------------- |
-| Java        | Core language         |
-| Spring Boot | Backend framework     |
-| Maven       | Dependency management |
+# Frontend
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling and responsive design
+- **JavaScript** - Client-side interactivity
 
-## Frontend
+# Key Concepts
+- **REST Architecture** - Standard HTTP methods for API communication
+- **Service-Based Architecture** - Modular design with separation of concerns
+- **Search Ranking Algorithms** - Sophisticated relevance calculation
+- **Data Aggregation & Processing** - Efficient batch result handling
 
-| Technology | Purpose       |
-| ---------- | ------------- |
-| HTML       | Structure     |
-| CSS        | Styling       |
-| JavaScript | Interactivity |
 
 ---
 
@@ -144,43 +146,63 @@ Enter a query in the search box to retrieve aggregated results.
 # 📂 Project Structure
 
 ```
-federated-search-engine
+federated-search-engine/
 │
-├── src
-│   ├── main
-│   │   ├── java/com/example/federatedsearch
-│   │   │   ├── controller
-│   │   │   ├── service
-│   │   │   ├── model
-│   │   │   ├── repository
-│   │   │   ├── external
-│   │   │   └── util
+├── src/
+│   ├── main/
+│   │   ├── java/com/example/federatedsearch/
+│   │   │   ├── controller/
+│   │   │   │   └── SearchController.java          # REST API endpoints
+│   │   │   │
+│   │   │   ├── service/
+│   │   │   │   ├── SearchService.java             # Core search logic
+│   │   │   │   ├── AggregationService.java        # Result aggregation
+│   │   │   │   ├── RankingService.java            # Ranking algorithm
+│   │   │   │   └── FilteringService.java          # Spam & duplicate filtering
+│   │   │   │
+│   │   │   ├── model/
+│   │   │   │   ├── SearchResult.java              # Result model
+│   │   │   │   └── SearchQuery.java               # Query model
+│   │   │   │
+│   │   │   ├── repository/
+│   │   │   │   └── SearchRepository.java          # Data access layer
+│   │   │   │
+│   │   │   ├── external/
+│   │   │   │   ├── SearchEngineConnector.java     # External API integration
+│   │   │   │   └── DataSourceAdapter.java         # Data source adapters
+│   │   │   │
+│   │   │   └── util/
+│   │   │       ├── SearchUtils.java               # Helper methods
+│   │   │       └── RankingAlgorithm.java          # Ranking logic
 │   │   │
-│   │   └── resources
-│   │       ├── application.properties
-│   │       └── static
-│   │           ├── index.html
-│   │           ├── style.css
-│   │           └── script.js
+│   │   └── resources/
+│   │       ├── application.properties             # Spring Boot configuration
+│   │       └── static/
+│   │           ├── index.html                     # Main HTML page
+│   │           ├── css/
+│   │           │   └── style.css                  # Styling
+│   │           └── js/
+│   │               └── script.js                  # Frontend JavaScript
+│   │
+│   └── test/                                      # Unit & integration tests
 │
-├── pom.xml
-├── README.md
-└── LICENSE
+├── pom.xml                                        # Maven configuration
+├── README.md                                      # This file
+└── LICENSE                                        # MIT License
 ```
 
 ---
 
 # 📸 Example Output
 
-Search results appear as ranked cards displaying:
+Search Results Interface
+The application provides a clean, user-friendly interface that displays:
 
-* Title
-* Source
-* Description
-* Relevance score
-
-(You can add screenshots later.)
-
+Search results from multiple sources in a unified view
+Relevance scores for each result
+Source attribution and credibility indicators
+Processing time and total results count
+Pagination for easy navigation
 ---
 
 # 🚧 Future Improvements
@@ -192,19 +214,43 @@ Search results appear as ranked cards displaying:
 * Multi-language support
 * Search suggestions/autocomplete
 
+#Sample Result Format
+┌─────────────────────────────────────────────────┐
+│ Java Programming Tutorial                       │
+│ Source: Developer Hub  |  Score: 9.5/10  ⭐     │
+├─────────────────────────────────────────────────┤
+│ Learn Java from basics to advanced concepts     │
+│ with real-world examples and best practices.    │
+│                                                 │
+│ 🔗 https://example.com/java-tutorial            │
+│ ⏱️  Processing time: 245ms                      │
+└─────────────────────────────────────────────────┘
 ---
 
 # 📄 License
+This project is licensed under the **MIT License** - see the LICENSE file for details.
 
-This project is licensed under the **MIT License**.
+MIT License Summary:
+
+✅ You can use this software for any purpose
+✅ You can copy, modify, and distribute the software
+✅ You can use the software privately
+⚠️ You must include a copy of the license and copyright notice
+⚠️ The software is provided "as-is" without warranty
+For full license details, see the LICENSE file in the repository.
 
 ---
 
 # 👩‍💻 Author
 
 **Ishika Rawat**
-B.Tech Computer Science Student
+🎓 B.Tech Computer Science Student
+💼 GitHub Profile
+📧 Contact via GitHub
 
----
+<div align="center">
+⭐ If you find this project useful, please consider giving it a star!
 
-⭐ If you found this project helpful, consider giving it a star!
+Made with ❤️ by Ishika Rawat
+</div> 
+
