@@ -208,20 +208,6 @@ federated-search-engine/
 # 📄 License
 This project is licensed under the **MIT License** - see the LICENSE file for details.
 
-MIT License Summary:
-
-✅ You can use this software for any purpose
-
-✅ You can copy, modify, and distribute the software
-
-✅ You can use the software privately
-
-⚠️ You must include a copy of the license and copyright notice
-
-⚠️ The software is provided "as-is" without warranty
-
-For full license details, see the LICENSE file in the repository.
-
 ---
 
 # 👩‍💻 Author
