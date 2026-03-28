@@ -223,8 +223,6 @@ This project is licensed under the **MIT License** - see the LICENSE file for de
 
 
 <div align="center">
-⭐ If you find this project useful, please consider giving it a star!
-
-Made with ❤️ by Ishika Rawat
+~ by Ishika Rawat
 </div> 
 
