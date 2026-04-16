@@ -1,5 +1,5 @@
 package com.example.federatedsearch.repository;
 
-public class SearchRepository {
+public class SearchRepository {i
     
 }
