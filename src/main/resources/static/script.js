@@ -142,6 +142,8 @@ function getSource(item) {
     if (typeof item === 'object' && item.source) {
         const s = item.source.toLowerCase();
         if (s === 'youtube')            return { key: 'youtube',  class: 'youtube',  label: 'YouTube'  };
+        if (s === 'duckduckgo')         return { key: 'duckduckgo', class: 'duckduckgo', label: 'DuckDuckGo' };
+        if (s === 'wikipedia')          return { key: 'wikipedia', class: 'wikipedia', label: 'Wikipedia' };
         if (s === 'web')                return { key: 'web',      class: 'web',      label: 'Web'      };
         if (s === 'internal' || s === 'database') return { key: 'internal', class: 'database', label: 'Database' };
         if (s === 'research' || s === 'scientific') return { key: 'papers',   class: 'papers',   label: 'Research'   };
