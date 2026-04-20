@@ -6,75 +6,142 @@
     <title>FedSearch | Next-Gen Federated Search</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Shake animation (inline so it's always available) */
+        @keyframes shake {
+            0%,100% { transform: translateX(0); }
+            20%     { transform: translateX(-6px); }
+            40%     { transform: translateX(6px); }
+            60%     { transform: translateX(-4px); }
+            80%     { transform: translateX(4px); }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Background Layers -->
     <div class="mesh-bg"></div>
-    
+    <div class="aurora-layer"></div>
+    <div class="stars"></div>
+
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">FED<span>SEARCH</span></div>
         <div class="nav-links">
-            <span class="status-dot"></span> System Online
+            <span class="status-dot"></span> All Systems Online
+            <button class="nav-btn" onclick="showHistory()" title="Search History">
+                <i data-lucide="history" style="width:16px;height:16px;"></i>
+            </button>
+            <button class="nav-btn" onclick="showPopularQueries()" title="Popular Searches">
+                <i data-lucide="trending-up" style="width:16px;height:16px;"></i>
+            </button>
         </div>
     </nav>
 
+    <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <div class="badge">v2.0 Beta Launched</div>
-            <h1>Search Everywhere. <br><span class="gradient-text">All at Once.</span></h1>
-            <p class="subtitle">Aggregate results from across the web, remove spam, and find exactly what you need in milliseconds.</p>
-            
+
+            <div class="badge">v2.0 Beta &mdash; Now Live</div>
+
+            <h1>Search Everywhere.<br><span class="gradient-text">All at Once.</span></h1>
+
+            <p class="subtitle">
+                Aggregate results from 50+ sources across the web,
+                filter out noise, and surface exactly what matters — in milliseconds.
+            </p>
+
+            <!-- Search Bar -->
             <div class="search-wrapper">
                 <div class="search-container">
                     <i data-lucide="search" class="search-icon"></i>
-
-                    <!-- INPUT WITH ID -->
-                    <input 
-                        type="text" 
-                        class="search-bar" 
-                        placeholder="What are we looking for today?" 
+                    <input
+                        type="text"
+                        class="search-bar"
+                        placeholder="What are we looking for today?"
                         id="searchInput"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
                     >
-
-                    <!-- SEARCH BUTTON -->
-                    <button 
-                        class="search-btn" 
+                    <button
+                        class="search-btn"
                         onclick="handleSearch(document.getElementById('searchInput').value)"
                     >
                         Search
                     </button>
-
                 </div>
             </div>
 
+            <!-- Stats Bar -->
             <div class="hero-stats" id="heroStats">
-                <div class="stat"><strong>50+</strong> Sources</div>
-                <div class="stat"><strong>0ms</strong> Latency</div>
-                <div class="stat"><strong>AI</strong> Spam Filter</div>
+                <div class="stat">
+                    <strong>50+</strong>
+                    <span>Sources</span>
+                </div>
+                <div class="stat">
+                    <strong>&lt;10ms</strong>
+                    <span>Latency</span>
+                </div>
+                <div class="stat">
+                    <strong>AI</strong>
+                    <span>Spam Filter</span>
+                </div>
             </div>
+
         </div>
 
+        <!-- Loader -->
         <div class="loader" id="loader"></div>
     </section>
 
+    <!-- Results -->
     <main class="results-section" id="resultsSection">
+
         <header class="results-header">
             <div class="filters">
-                <button class="filter-chip active">All Sources</button>
-                <button class="filter-chip">YouTube</button>
-                <button class="filter-chip">Scientific Papers</button>
-                <button class="filter-chip">Documentation</button>
+                <button class="filter-chip active" data-filter="all">All Sources</button>
+                <button class="filter-chip" data-filter="youtube">YouTube</button>
+                <button class="filter-chip" data-filter="web">Web</button>
+                <button class="filter-chip" data-filter="internal">Database</button>
             </div>
-
-            <!-- RESULTS COUNT -->
             <div class="results-count" id="resultsCount"></div>
+            <button class="clear-filters-btn" onclick="clearFilters()" style="display:none;">
+                Clear Filter
+            </button>
         </header>
 
-        <!-- RESULTS GRID -->
         <div class="results-grid" id="resultsGrid"></div>
 
     </main>
 
-    <script src="script.js"></script>
+    <!-- History Modal -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i data-lucide="history" style="width:20px;height:20px;"></i> Search History</h2>
+                <button class="modal-close" onclick="closeModal('historyModal')">
+                    <i data-lucide="x" style="width:20px;height:20px;"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="historyContent"></div>
+        </div>
+    </div>
 
+    <!-- Popular Queries Modal -->
+    <div class="modal" id="popularModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i data-lucide="trending-up" style="width:20px;height:20px;"></i> Popular Searches</h2>
+                <button class="modal-close" onclick="closeModal('popularModal')">
+                    <i data-lucide="x" style="width:20px;height:20px;"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="popularContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
