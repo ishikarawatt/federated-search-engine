@@ -47,8 +47,8 @@
             <h1>Search Everywhere.<br><span class="gradient-text">All at Once.</span></h1>
 
             <p class="subtitle">
-                Aggregate results from 50+ sources across the web,
-                filter out noise, and surface exactly what matters — in milliseconds.
+                Aggregate results from Web, Wikipedia, and YouTube,
+                filter out noise, and surface exactly what matters — in seconds.
             </p>
 
             <!-- Search Bar -->
@@ -77,16 +77,16 @@
             <!-- Stats Bar -->
             <div class="hero-stats" id="heroStats">
                 <div class="stat">
-                    <strong>50+</strong>
+                    <strong>3</strong>
                     <span>Sources</span>
                 </div>
                 <div class="stat">
-                    <strong>&lt;10ms</strong>
-                    <span>Latency</span>
+                    <strong>&lt;2s</strong>
+                    <span>Response</span>
                 </div>
                 <div class="stat">
                     <strong>AI</strong>
-                    <span>Spam Filter</span>
+                    <span>Ranking</span>
                 </div>
             </div>
 
@@ -101,11 +101,10 @@
 
         <header class="results-header">
             <div class="filters">
-                <button class="filter-chip active" data-filter="all">All Sources</button>
-                <button class="filter-chip" data-filter="duckduckgo">DuckDuckGo</button>
+                <button class="filter-chip active" data-filter="all">All Results</button>
+                <button class="filter-chip" data-filter="duckduckgo">Web</button>
                 <button class="filter-chip" data-filter="wikipedia">Wikipedia</button>
-                <button class="filter-chip" data-filter="youtube">YouTube</button>
-                <button class="filter-chip" data-filter="internal">Database</button>
+                <button class="filter-chip" data-filter="youtube">YouTube Videos</button>
             </div>
             <div class="results-count" id="resultsCount"></div>
             <button class="clear-filters-btn" onclick="clearFilters()" style="display:none;">

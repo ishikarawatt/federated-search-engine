@@ -1,6 +1,5 @@
 package com.example.federatedsearch.service;
 
-import com.example.federatedsearch.external.InternalDatabaseService;
 import com.example.federatedsearch.external.WebSearchAPIService;
 import com.example.federatedsearch.external.YouTubeAPIService;
 import com.example.federatedsearch.external.WikipediaAPIService;
@@ -9,61 +8,98 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class AggregationService {
     
     private final WebSearchAPIService webSearchAPIService;
     private final YouTubeAPIService youTubeAPIService;
-    private final InternalDatabaseService internalDatabaseService;
     private final WikipediaAPIService wikipediaAPIService;
+    
+    // Thread pool for parallel execution
+    private final ExecutorService executor = Executors.newFixedThreadPool(3);
     
     public AggregationService(WebSearchAPIService webSearchAPIService, 
                              YouTubeAPIService youTubeAPIService,
-                             InternalDatabaseService internalDatabaseService,
                              WikipediaAPIService wikipediaAPIService) {
         this.webSearchAPIService = webSearchAPIService;
         this.youTubeAPIService = youTubeAPIService;
-        this.internalDatabaseService = internalDatabaseService;
         this.wikipediaAPIService = wikipediaAPIService;
     }
     
     /**
      * Aggregates search results from all sources (PARALLEL FEDERATION)
+     * Uses CompletableFuture for async parallel execution
      */
     public List<SearchResult> aggregateResults(String query) {
         List<SearchResult> aggregatedResults = new ArrayList<>();
         
-        // 1. DuckDuckGo Web Search
+        System.out.println("=== Starting Federated Search for: " + query + " ===");
+        
+        // Create parallel tasks for all sources
+        CompletableFuture<List<SearchResult>> webFuture = CompletableFuture.supplyAsync(() -> {
+            try {
+                System.out.println("Fetching DuckDuckGo results...");
+                List<SearchResult> results = webSearchAPIService.search(query);
+                System.out.println("DuckDuckGo returned: " + results.size() + " results");
+                return results;
+            } catch (Exception e) {
+                System.err.println("Error fetching web results: " + e.getMessage());
+                e.printStackTrace();
+                return new ArrayList<SearchResult>();
+            }
+        }, executor);
+        
+        CompletableFuture<List<SearchResult>> wikiFuture = CompletableFuture.supplyAsync(() -> {
+            try {
+                System.out.println("Fetching Wikipedia results...");
+                List<SearchResult> results = wikipediaAPIService.search(query);
+                System.out.println("Wikipedia returned: " + results.size() + " results");
+                return results;
+            } catch (Exception e) {
+                System.err.println("Error fetching Wikipedia results: " + e.getMessage());
+                e.printStackTrace();
+                return new ArrayList<SearchResult>();
+            }
+        }, executor);
+        
+        CompletableFuture<List<SearchResult>> youtubeFuture = CompletableFuture.supplyAsync(() -> {
+            try {
+                System.out.println("Fetching YouTube results...");
+                List<SearchResult> results = youTubeAPIService.search(query);
+                System.out.println("YouTube returned: " + results.size() + " results");
+                return results;
+            } catch (Exception e) {
+                System.err.println("Error fetching YouTube results: " + e.getMessage());
+                e.printStackTrace();
+                return new ArrayList<SearchResult>();
+            }
+        }, executor);
+        
+        // Wait for all tasks to complete and combine results
         try {
-            List<SearchResult> webResults = webSearchAPIService.search(query);
+            CompletableFuture.allOf(webFuture, wikiFuture, youtubeFuture).join();
+            
+            // Combine all results
+            List<SearchResult> webResults = webFuture.get();
+            List<SearchResult> wikiResults = wikiFuture.get();
+            List<SearchResult> youtubeResults = youtubeFuture.get();
+            
             aggregatedResults.addAll(webResults);
-        } catch (Exception e) {
-            System.err.println("Error fetching web results: " + e.getMessage());
-        }
-        
-        // 2. Wikipedia Knowledge
-        try {
-            List<SearchResult> wikiResults = wikipediaAPIService.search(query);
             aggregatedResults.addAll(wikiResults);
-        } catch (Exception e) {
-            System.err.println("Error fetching Wikipedia results: " + e.getMessage());
-        }
-        
-        // 3. YouTube Videos
-        try {
-            List<SearchResult> youtubeResults = youTubeAPIService.search(query);
             aggregatedResults.addAll(youtubeResults);
+            
+            System.out.println("=== Total aggregated results: " + aggregatedResults.size() + " ===");
+            System.out.println("  - Web: " + webResults.size());
+            System.out.println("  - Wikipedia: " + wikiResults.size());
+            System.out.println("  - YouTube: " + youtubeResults.size());
+            
         } catch (Exception e) {
-            System.err.println("Error fetching YouTube results: " + e.getMessage());
-        }
-        
-        // 4. Internal Database
-        try {
-            List<SearchResult> internalResults = internalDatabaseService.searchFallback(query);
-            aggregatedResults.addAll(internalResults);
-        } catch (Exception e) {
-            System.err.println("Error fetching internal results: " + e.getMessage());
+            System.err.println("Error combining results: " + e.getMessage());
+            e.printStackTrace();
         }
         
         return aggregatedResults;

@@ -111,6 +111,7 @@ function renderCard(item, index) {
             <h3>${escapeHtml(title)}</h3>
             <p>${escapeHtml(desc)}</p>
             
+            ${views > 0 ? `
             <div class="card-stats">
                 <span class="stat-item">
                     <i data-lucide="eye" style="width:13px;height:13px;"></i>
@@ -121,6 +122,7 @@ function renderCard(item, index) {
                     ${formatNumber(likes)}
                 </span>
             </div>
+            ` : ''}
 
             <div class="card-footer">
                 <div class="card-meta">
@@ -142,10 +144,9 @@ function getSource(item) {
     if (typeof item === 'object' && item.source) {
         const s = item.source.toLowerCase();
         if (s === 'youtube')            return { key: 'youtube',  class: 'youtube',  label: 'YouTube'  };
-        if (s === 'duckduckgo')         return { key: 'duckduckgo', class: 'duckduckgo', label: 'DuckDuckGo' };
+        if (s === 'duckduckgo')         return { key: 'duckduckgo', class: 'duckduckgo', label: 'Web' };
         if (s === 'wikipedia')          return { key: 'wikipedia', class: 'wikipedia', label: 'Wikipedia' };
         if (s === 'web')                return { key: 'web',      class: 'web',      label: 'Web'      };
-        if (s === 'internal' || s === 'database') return { key: 'internal', class: 'database', label: 'Database' };
         if (s === 'research' || s === 'scientific') return { key: 'papers',   class: 'papers',   label: 'Research'   };
         if (s === 'github' || s === 'docs' || s === 'documentation') return { key: 'docs',    class: 'docs',     label: 'Docs'     };
     }
