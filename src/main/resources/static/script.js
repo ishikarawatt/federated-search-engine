@@ -54,7 +54,6 @@ function toggleSourcePanel() {
     const panel = document.getElementById('sourcePanel');
     panel?.classList.toggle('active');
 }
-
 // ─── SEARCH INITIATOR & BENTO COMPUTATION ────────────────────────────
 async function handleSearch(query) {
     query = query?.trim();
