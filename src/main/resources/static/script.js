@@ -1,7 +1,6 @@
 // ─── INITIALIZATION & PERSISTED STATE ────────────────────────────────
 let currentResults = [];
 let currentFilter  = 'all';
-
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
 
