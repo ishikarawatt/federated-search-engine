@@ -34,7 +34,6 @@ function toggleTheme() {
     localStorage.setItem('fedsearch-theme', newTheme);
     updateThemeIcon(newTheme);
 }
-
 function updateThemeIcon(theme) {
     const sunIcon = document.querySelector('.sun-icon');
     const moonIcon = document.querySelector('.moon-icon');
