@@ -3,6 +3,7 @@ let currentResults = [];
 let currentFilter  = 'all';
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
+
     // Initialize persisted theme or fallback to dark mahogany
     const savedTheme = localStorage.getItem('fedsearch-theme') || 'theme-dark';
     document.body.className = savedTheme;
