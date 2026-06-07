@@ -41,7 +41,6 @@ public class SearchRepository {
             .map(Map.Entry::getKey)
             .collect(Collectors.toList());
     }
-    
     /**
      * Clears search history for a user
      */
