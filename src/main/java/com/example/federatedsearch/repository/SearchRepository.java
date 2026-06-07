@@ -31,6 +31,7 @@ public class SearchRepository {
     public List<String> getSearchHistory(String userId) {
         return searchHistory.getOrDefault(userId, new ArrayList<>());
     }
+
     /**
      * Gets top N popular queries
      */
