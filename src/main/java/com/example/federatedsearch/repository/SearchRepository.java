@@ -32,6 +32,7 @@ public class SearchRepository {
         return searchHistory.getOrDefault(userId, new ArrayList<>());
     }
 
+
     /**
      * Gets top N popular queries
      */
