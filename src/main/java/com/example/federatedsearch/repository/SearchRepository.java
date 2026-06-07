@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 @Repository
 public class SearchRepository {
 
-
     // In-memory storage for search history
     private final Map<String, List<String>> searchHistory = new ConcurrentHashMap<>();
     
