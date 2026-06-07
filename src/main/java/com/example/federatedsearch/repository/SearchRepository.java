@@ -15,6 +15,7 @@ public class SearchRepository {
     // Popular queries tracker
     private final Map<String, Integer> popularQueries = new ConcurrentHashMap<>();
    
+
     /**
      * Saves a search query to history
      */
