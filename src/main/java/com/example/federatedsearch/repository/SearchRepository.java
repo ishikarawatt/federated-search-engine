@@ -43,7 +43,6 @@ public class SearchRepository {
             .collect(Collectors.toList());
     }
 
-
     /**
      * Clears search history for a user
      */
