@@ -1,7 +1,6 @@
 package com.example.federatedsearch.repository;
 
 import org.springframework.stereotype.Repository;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
