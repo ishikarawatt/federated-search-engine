@@ -139,7 +139,6 @@ Open your browser:
 ```
 http://localhost:8080
 ```
-
 Enter a query in the search box to retrieve aggregated results.
 
 ---
