@@ -18,7 +18,7 @@ public class DuplicateRemovalService {
     public List<SearchResult> removeDuplicates(List<SearchResult> results) {
         List<SearchResult> uniqueResults = new ArrayList<>();
         Set<String> seenHashes = new HashSet<>();
-        
+       
         for (SearchResult result : results) {
             String hash = HashUtil.generateHash(result.getTitle(), result.getUrl());
             
