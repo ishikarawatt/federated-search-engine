@@ -11,6 +11,7 @@ import java.util.Set;
 
 @Service
 public class DuplicateRemovalService {
+
     /**
      * Removes duplicate search results based on hash comparison
      */
