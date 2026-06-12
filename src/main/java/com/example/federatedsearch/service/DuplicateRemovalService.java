@@ -15,6 +15,7 @@ public class DuplicateRemovalService {
     /**
      * Removes duplicate search results based on hash comparison
      */
+
     public List<SearchResult> removeDuplicates(List<SearchResult> results) {
         List<SearchResult> uniqueResults = new ArrayList<>();
         Set<String> seenHashes = new HashSet<>();
