@@ -13,7 +13,7 @@ import java.util.Set;
 public class DuplicateRemovalService {
 
     /**
-     * Removes duplicate search results based on hash comparison
+     * Removes duplicate search results based on hash compar.
      */
 
     public List<SearchResult> removeDuplicates(List<SearchResult> results) {
