@@ -8,7 +8,8 @@
 [![Spring Boot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-**A powerful full-stack federated search system that aggregates, deduplicates, and ranks results from multiple sources in real-time.**
+
+**A powerful full-stack federated search system that aggregates, deduplicates, and ranks results from multiple sources in real time.**
 
 [Live Demo](#) • [Report Bug](https://github.com/ishikarawatt/federated-search-engine/issues) • [Request Feature](https://github.com/ishikarawatt/federated-search-engine/issues)
 </div>
