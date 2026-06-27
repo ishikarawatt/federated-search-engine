@@ -209,7 +209,6 @@ function renderFeaturedCard(item) {
             </div>
         </div>
     ` : '';
-
     featuredContainer.innerHTML = `
         <div class="featured-card">
             <div class="featured-label">Top Relevance Match</div>
