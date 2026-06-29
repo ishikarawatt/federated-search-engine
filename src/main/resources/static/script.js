@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') handleSearch(searchInput.value);
     });
 
+
     // Filtering chips mapping
     document.querySelectorAll('.filter-chip').forEach(chip => {
         chip.addEventListener('click', () => {
