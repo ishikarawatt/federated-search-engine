@@ -52,7 +52,7 @@ This project demonstrates **full-stack development and scalable backend architec
 
 - 🔍 **Multi-Source Search** - Query multiple search engines and data sources simultaneously
 - ⚡ **High-Performance Backend** - Built with Spring Boot for scalable, fast processing
-- 🧠 **Intelligent Filtering** - Advanced spam detection and duplicate removal algorithms
+- 🧠**Intelligent Filtering** - Advanced spam detection and duplicate removal algorithms
 - 📊 **Smart Ranking System** - Relevance-based ranking to prioritize quality results
 - 🎨 **Modern UI** - Responsive and intuitive user interface
 - 🔗 **Full-Stack Integration** - Seamless communication between frontend and backend
